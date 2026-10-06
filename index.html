@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Afisvesco Marine Electrical</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <header class="container">
+    <a class="brand" href="#">
+      Afisvesco
+      <span>Marine electrical</span>
+    </a>
+
+    <nav>
+      <a href="#services">Services</a>
+      <a href="#request">Request help</a>
+      <a href="#requests">My requests</a>
+    </nav>
+
+    <a class="button" href="#request">Get a quote</a>
+  </header>
+
+  <main>
+    <section class="container hero">
+      <div>
+        <div class="eyebrow">Marine electrical services</div>
+        <h1>Reliable electrical help for your vessel.</h1>
+        <p>
+          Describe the problem or upgrade you need. Get your service request
+          organized in one place.
+        </p>
+        <a class="button" href="#request">Request a quote ↓</a>
+      </div>
+
+      <div class="hero-art" aria-label="Animated marine octopus mascot">
+        <div class="marine-mascot">
+          <div class="mascot-bubble">“I can sea the current problem!”</div>
+
+          <video
+            class="hero-video"
+            src="octopus_mascot_loop.mp4"
+            autoplay
+            muted
+            loop
+            playsinline
+            aria-label="Looping octopus mascot animation"
+          ></video>
+
+          <strong>Captain Current</strong>
+          <small>Junior marine electrician</small>
+        </div>
+      </div>
+    </section>
+
+    <section class="container section" id="services">
+      <div class="section-heading">
+        <div class="eyebrow">What we can help with</div>
+        <h2>Marine electrical services</h2>
+        <p>Search the services or choose a category.</p>
+      </div>
+
+      <div class="toolbar">
+        <input id="searchInput" type="search" placeholder="Search services">
+        <select id="categoryFilter">
+          <option value="all">All services</option>
+          <option value="Power">Power</option>
+          <option value="Navigation">Navigation</option>
+          <option value="Installation">Installation</option>
+          <option value="Repairs">Repairs</option>
+        </select>
+      </div>
+
+      <!-- JavaScript adds service cards here. -->
+      <div class="service-grid" id="serviceGrid"></div>
+    </section>
+
+    <section class="container section two-columns">
+      <div class="card">
+        <div class="eyebrow">Service matcher</div>
+        <h2>Not sure what you need?</h2>
+        <p class="muted">Choose the closest description to get a starting point.</p>
+
+        <div class="symptom-list">
+          <button class="symptom" data-service="Battery and charging">
+            My battery or power keeps cutting out
+          </button>
+          <button class="symptom" data-service="Navigation equipment">
+            My navigation or radio equipment has a problem
+          </button>
+          <button class="symptom" data-service="Electrical troubleshooting">
+            Something electrical is behaving strangely
+          </button>
+          <button class="symptom" data-service="Equipment installation">
+            I want to install new equipment
+          </button>
+        </div>
+
+        <p id="matcherResult" aria-live="polite"></p>
+        <button class="button" id="useSuggestion" hidden>Use this service</button>
+      </div>
+
+      <div class="card checklist">
+        <div class="eyebrow">Before the visit</div>
+        <h2>Preparation checklist</h2>
+        <p class="muted">Your checklist is saved in this browser.</p>
+
+        <label><input type="checkbox" data-check="photos"> Take photos of the issue</label>
+        <label><input type="checkbox" data-check="vessel"> Note the boat make and model</label>
+        <label><input type="checkbox" data-check="location"> Confirm where the boat is</label>
+        <label><input type="checkbox" data-check="details"> Write down when the issue happens</label>
+      </div>
+    </section>
+
+    <section class="container section" id="request">
+      <div class="section-heading">
+        <div class="eyebrow">Start here</div>
+        <h2>Request a quote</h2>
+        <p>Tell us what you need. You can send the details directly to our team on WhatsApp.</p>
+      </div>
+
+      <div class="card request-card">
+        <div class="form-intro">
+          <h3>Tell us about your vessel</h3>
+          <p>Use the fields below. Your request will open in WhatsApp with the details already written.</p>
+        </div>
+
+        <form id="requestForm">
+          <div class="field">
+            <label for="name">Your name</label>
+            <input id="name" name="name" autocomplete="name" placeholder="e.g. Tunde Adebayo" required>
+          </div>
+
+          <div class="field">
+            <label for="phone">Phone number</label>
+            <input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="For the team to call you" required>
+          </div>
+
+          <div class="field">
+            <label for="customerWhatsApp">Your WhatsApp number</label>
+            <input
+              id="customerWhatsApp"
+              name="customerWhatsApp"
+              type="tel"
+              autocomplete="tel"
+              placeholder="Include your country code"
+              required
+            >
+          </div>
+
+          <div class="field">
+            <label for="vessel">Boat type or model</label>
+            <input id="vessel" name="vessel" placeholder="e.g. Sailboat or 30 ft cruiser" required>
+          </div>
+
+          <div class="field">
+            <label for="location">Where is the boat?</label>
+            <input id="location" name="location" placeholder="Marina, city or area" required>
+          </div>
+
+          <div class="field">
+            <label for="service">Service needed</label>
+            <select id="service" name="service" required>
+              <option value="">Choose a service</option>
+              <option>Battery and charging</option>
+              <option>Electrical troubleshooting</option>
+              <option>Navigation equipment</option>
+              <option>Equipment installation</option>
+              <option>Wiring repair</option>
+              <option>Not sure yet</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="urgency">When do you need help?</label>
+            <select id="urgency" name="urgency">
+              <option>Flexible</option>
+              <option>This week</option>
+              <option>Urgent</option>
+            </select>
+          </div>
+
+          <div class="field full">
+            <label for="details">Describe the issue</label>
+            <textarea id="details" name="details" placeholder="What is happening? Include any warning signs or equipment affected."></textarea>
+          </div>
+
+          <div class="field full">
+            <button class="button" type="submit">Send request on WhatsApp</button>
+            <p class="form-note">After sending, WhatsApp will open with your request ready to send. You can add photos before sending.</p>
+            <p id="formMessage" class="form-message" aria-live="polite"></p>
+          </div>
+        </form>
+
+        <a class="whatsapp-help" href="https://wa.me/2349012161345" target="_blank" rel="noopener noreferrer">
+          <span aria-hidden="true">↗</span>
+          Need help? WhatsApp us
+        </a>
+      </div>
+    </section>
+
+    <section class="container section" id="requests">
+      <div class="section-heading">
+        <div class="eyebrow">Saved on this device</div>
+        <h2>My requests</h2>
+        <p>Requests you submit will show here in this browser.</p>
+      </div>
+
+      <div class="request-list" id="requestList"></div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      Afisvesco Marine Electrical · available in Lagos, Warri, Ogun, and more.
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
